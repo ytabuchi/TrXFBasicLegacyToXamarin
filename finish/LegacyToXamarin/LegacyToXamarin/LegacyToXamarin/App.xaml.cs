@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 
 namespace LegacyToXamarin
 {
@@ -13,7 +16,7 @@ namespace LegacyToXamarin
 		{
 			InitializeComponent();
 
-			MainPage = new LegacyToXamarin.MainPage();
+            MainPage = new NavigationPage(new SummaryPage());
 		}
 
 		protected override void OnStart ()

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{353FDC7B-C9E6-4933-B4FA-C63422E829BA}</ProjectGuid>
+    <ProjectGuid>{86E24B32-E6A8-4D1D-85D3-8743B5BB0EC1}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <RootNamespace>LegacyToXamarin.Droid</RootNamespace>
@@ -81,7 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LegacyToXamarin\LegacyToXamarin.csproj">
-      <Project>{A62EDBD0-53AE-4AEE-8963-0095C72A9CD7}</Project>
+      <Project>{9EA8B29A-A241-4925-99DA-7E69B4D4B87E}</Project>
       <Name>LegacyToXamarin</Name>
     </ProjectReference>
   </ItemGroup>
