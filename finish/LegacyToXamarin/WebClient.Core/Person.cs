@@ -14,5 +14,14 @@ namespace WebClient.Core
         public string Name { get; set; }
         [JsonProperty(PropertyName = "birthday")]
         public DateTimeOffset Birthday { get; set; }
+
+        /// <summary>
+        /// ListBoxに表示される文字列
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return $"{Id}:{Name} {Birthday.Year}/{Birthday.Month}/{Birthday.Day}";
+        }
     }
 }
