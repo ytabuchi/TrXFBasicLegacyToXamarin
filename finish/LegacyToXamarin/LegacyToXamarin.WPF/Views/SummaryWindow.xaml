@@ -1,0 +1,51 @@
+﻿<Window x:Class="LegacyToXamarin.WPF.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:LegacyToXamarin.WPF"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="SummaryPage"
+        Width="425"
+        Height="350"
+        Loaded="MainWindow_OnLoaded"
+        mc:Ignorable="d">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*" />
+            <ColumnDefinition Width="50*" />
+        </Grid.ColumnDefinitions>
+        <ListBox Grid.ColumnSpan="2"
+                 Grid.Row="0"
+                 ItemsSource="{Binding}"
+                 SelectionChanged="Selector_OnSelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label VerticalAlignment="Center" Content="{Binding Id}" />
+                        <StackPanel>
+                            <Label VerticalContentAlignment="Center" Content="{Binding Name}" />
+                            <Label VerticalContentAlignment="Bottom" Content="{Binding Birthday}" ContentStringFormat="{}{0:yyyy年MM月dd日}" />
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Grid.Row="1"
+                Margin="10"
+                Padding="10"
+                Click="BtnAddClick">
+            Add
+        </Button>
+        <Button Grid.Column="1"
+                Grid.Row="1"
+                Margin="10"
+                Padding="10"
+                Click="BtnAllDataClick">
+            CLEAR ALL DATA
+        </Button>
+    </Grid>
+</Window>
