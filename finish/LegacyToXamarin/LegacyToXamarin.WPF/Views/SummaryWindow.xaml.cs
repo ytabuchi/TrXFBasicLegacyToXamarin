@@ -1,20 +1,20 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using LegacyToXamarin.WPF.Models;
 
 namespace LegacyToXamarin.WPF.Views
 {
-    using System.Windows.Controls;
-
-    using WebClient.Core;
 
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SummaryWindow : Window
     {
         public ObservableCollection<Person> PeopleList { get; set; } = new ObservableCollection<Person>();
-        public MainWindow()
+
+        public SummaryWindow()
         {
             InitializeComponent();
             DataContext = PeopleList;
