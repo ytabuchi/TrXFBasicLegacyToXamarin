@@ -1,11 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LegacyToXamarin.WinForms.Models
@@ -13,7 +10,6 @@ namespace LegacyToXamarin.WinForms.Models
     public class WebApiClient
     {
         public static WebApiClient Instance { get; set; } = new WebApiClient();
-        //private static HttpClient client = new HttpClient();
 
         private Uri baseAddress = ApiKeys.BaseAddress;
         private string Token = "";
