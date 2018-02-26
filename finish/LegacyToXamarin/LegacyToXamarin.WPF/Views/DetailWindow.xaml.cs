@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Windows;
+using LegacyToXamarin.WPF.Models;
 
 namespace LegacyToXamarin.WPF.Views
 {
-    using WebClient.Core;
-
     /// <summary>
     /// DetailWindow.xaml の相互作用ロジック
     /// </summary>
@@ -13,13 +12,14 @@ namespace LegacyToXamarin.WPF.Views
         public DetailWindow(Person person)
         {
             InitializeComponent();
+
             if (person != null)
                 DataContext = person;
             else
                 DataContext = new Person
-                                  {
-                                      Birthday = DateTime.Now
-                                  };
+                {
+                    Birthday = DateTime.Now
+                };
         }
 
         /// <summary>
@@ -44,21 +44,29 @@ namespace LegacyToXamarin.WPF.Views
             DialogResult = true;
         }
 
+        /// <summary>
+        /// 削除する
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void BtnDeleteClick(object sender, RoutedEventArgs e)
         {
             var currentPerson = DataContext as Person;
             await WebApiClient.Instance.DeletePersonAsync(currentPerson);
+
             DialogResult = true;
         }
 
+        /// <summary>
+        /// Windowロード時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DetailWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
             var currentPerson = DataContext as Person;
             edtId.IsEnabled = false;
-            if (currentPerson == null)
-            {
-                btnDelete.IsEnabled = false;
-            }
+            btnDelete.IsEnabled = (currentPerson.Id == 0) ? false : true;
         }
     }
 }

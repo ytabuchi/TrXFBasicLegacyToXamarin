@@ -56,7 +56,7 @@
             <TextBox Name="edtBirthday"
                      Grid.Column="1"
                      Grid.Row="2"
-                     Text="{Binding Birthday,StringFormat={}{0:yyyy年MM月dd日}}" />
+                     Text="{Binding Birthday, StringFormat={}{0:yyyy年MM月dd日}}" />
         </Grid>
 
         <!--  一番下のボタン  -->
@@ -65,16 +65,14 @@
                 Grid.Row="1"
                 Margin="10"
                 Padding="10"
-                Click="BtnSaveClick">
-            SAVE
-        </Button>
+                Click="BtnSaveClick"
+                Content="Save" />
         <Button Name="btnDelete"
                 Grid.Column="1"
                 Grid.Row="1"
                 Margin="10"
                 Padding="10"
-                Click="BtnDeleteClick">
-            DELETE
-        </Button>
+                Click="BtnDeleteClick"
+                Content="Delete" />
     </Grid>
 </Window>
