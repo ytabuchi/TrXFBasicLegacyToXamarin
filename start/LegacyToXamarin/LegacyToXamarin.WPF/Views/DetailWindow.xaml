@@ -7,72 +7,8 @@
         Title="DetailWindow"
         Width="300"
         Height="300"
-        Loaded="DetailWindow_OnLoaded"
         mc:Ignorable="d">
 
     <!--  外側のGrid  -->
-    <Grid Margin="5">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*" />
-            <ColumnDefinition Width="50*" />
-        </Grid.ColumnDefinitions>
-
-        <Grid Grid.ColumnSpan="2" Grid.Row="0">
-            <!--  内側のGrid  -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="60" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <!--  1行目  -->
-            <Label Grid.Column="0"
-                   Grid.Row="0"
-                   Content="ID" />
-            <TextBox Name="edtId"
-                     Grid.Column="1"
-                     Grid.Row="0"
-                     Text="{Binding Id}" />
-            <!--  2行目  -->
-            <Label Grid.Column="0"
-                   Grid.Row="1"
-                   Content="Name" />
-            <TextBox Name="edtName"
-                     Grid.Column="1"
-                     Grid.Row="1"
-                     Text="{Binding Name}" />
-            <!--  3行目  -->
-            <Label Grid.Column="0"
-                   Grid.Row="2"
-                   Content="Birthday" />
-            <TextBox Name="edtBirthday"
-                     Grid.Column="1"
-                     Grid.Row="2"
-                     Text="{Binding Birthday, StringFormat={}{0:yyyy年MM月dd日}}" />
-        </Grid>
-
-        <!--  一番下のボタン  -->
-        <Button Name="btnSave"
-                Grid.Column="0"
-                Grid.Row="1"
-                Margin="10"
-                Padding="10"
-                Click="BtnSaveClick"
-                Content="Save" />
-        <Button Name="btnDelete"
-                Grid.Column="1"
-                Grid.Row="1"
-                Margin="10"
-                Padding="10"
-                Click="BtnDeleteClick"
-                Content="Delete" />
-    </Grid>
+    <Grid />
 </Window>
