@@ -9,16 +9,17 @@ namespace LegacyToXamarin.WinForms.Views
 
     public partial class SummaryForm : Form
     {
-        //BindingList<PersonState> peopleDataList = new BindingList<PersonState>();
+        // Windows FormsのDataBinding
+        BindingList<PersonState> peopleDataList = new BindingList<PersonState>();
 
         public SummaryForm()
         {
             InitializeComponent();
 
             // Windows FormsのDataBinding
-            //peopleList.DataSource = peopleDataList;
-            //peopleList.DisplayMember = "DisplayString";
-            //peopleList.ValueMember = "PersonValue";
+            peopleList.DataSource = peopleDataList;
+            peopleList.DisplayMember = "DisplayString";
+            peopleList.ValueMember = "PersonValue";
         }
 
         /// <summary>
@@ -40,23 +41,23 @@ namespace LegacyToXamarin.WinForms.Views
             var webPeople = await WebApiClient.Instance.GetPeopleAsync();
 
             // Windows FormsのDataBinding
+            peopleDataList.Clear();
+            foreach (var person in webPeople)
+            {
+                peopleDataList.Add(
+                    new PersonState
+                    {
+                        Id = person.Id,
+                        Name = person.Name,
+                        Birthday = person.Birthday
+                    });
+            }
+
             //peopleList.Items.Clear();
             //foreach (var person in webPeople)
             //{
-            //    peopleDataList.Add(
-            //        new PersonState
-            //        {
-            //            Id = person.Id,
-            //            Name = person.Name,
-            //            Birthday = person.Birthday
-            //        });
+            //    peopleList.Items.Add(person);
             //}
-
-            peopleList.Items.Clear();
-            foreach (var person in webPeople)
-            {
-                peopleList.Items.Add(person);
-            }
         }
 
         /// <summary>

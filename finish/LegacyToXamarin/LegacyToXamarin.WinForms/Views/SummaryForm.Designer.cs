@@ -45,7 +45,6 @@
             this.peopleList.Name = "peopleList";
             this.peopleList.Size = new System.Drawing.Size(618, 424);
             this.peopleList.TabIndex = 0;
-            this.peopleList.ValueMember = "Birthday";
             this.peopleList.SelectedIndexChanged += new System.EventHandler(this.peopleList_SelectedIndexChanged);
             // 
             // tableLayoutPanel1
