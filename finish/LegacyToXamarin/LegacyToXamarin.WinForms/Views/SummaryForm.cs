@@ -1,25 +1,24 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LegacyToXamarin.WinForms.Views;
 using System.ComponentModel;
-using WebClient.Core;
 using LegacyToXamarin.WinForms.Models;
 
-namespace LegacyToXamarin.WinForms
+namespace LegacyToXamarin.WinForms.Views
 {
 
     public partial class SummaryForm : Form
     {
-        BindingList<PersonState> peopleDataList = new BindingList<PersonState>();
+        //BindingList<PersonState> peopleDataList = new BindingList<PersonState>();
 
         public SummaryForm()
         {
             InitializeComponent();
 
-            peopleList.DataSource = peopleDataList;
-            peopleList.DisplayMember = "DisplayString";
-            peopleList.ValueMember = "PersonValue";
+            // Windows FormsのDataBinding
+            //peopleList.DataSource = peopleDataList;
+            //peopleList.DisplayMember = "DisplayString";
+            //peopleList.ValueMember = "PersonValue";
         }
 
         /// <summary>
@@ -40,22 +39,24 @@ namespace LegacyToXamarin.WinForms
         {
             var webPeople = await WebApiClient.Instance.GetPeopleAsync();
 
-            foreach (var person in webPeople)
-            {
-                peopleDataList.Add(
-                    new PersonState
-                    {
-                        Id = person.Id,
-                        Name = person.Name,
-                        Birthday = person.Birthday
-                    });
-            }
-
+            // Windows FormsのDataBinding
             //peopleList.Items.Clear();
             //foreach (var person in webPeople)
             //{
-            //    peopleList.Items.Add(person);
+            //    peopleDataList.Add(
+            //        new PersonState
+            //        {
+            //            Id = person.Id,
+            //            Name = person.Name,
+            //            Birthday = person.Birthday
+            //        });
             //}
+
+            peopleList.Items.Clear();
+            foreach (var person in webPeople)
+            {
+                peopleList.Items.Add(person);
+            }
         }
 
         /// <summary>
@@ -80,17 +81,13 @@ namespace LegacyToXamarin.WinForms
         {
             if (peopleList.SelectedItem != null)
             {
-                //ちゃんとキャストしよう
-                var selectPerson = (WebClient.Core.Person)peopleList.SelectedItem;
+                var selectPerson = (Person)peopleList.SelectedItem;
                 if (new DetailForm(selectPerson).ShowDialog() == DialogResult.OK)
                 {
                     await UpdatePersonList();
                 }
-                //var selectPerson = (Person)peopleList.SelectedItem;
-                //if (new DetailForm(selectPerson).ShowDialog() == DialogResult.OK)
-                //{
-                //    await UpdatePersonList();
-                //}
+
+
             }
         }
 
@@ -112,12 +109,6 @@ namespace LegacyToXamarin.WinForms
                 await UpdatePersonList();
             }
         }
-
-        private void peopleList_MeasureItem(object sender, MeasureItemEventArgs e)
-        {
-
-        }
-
 
     }
 }

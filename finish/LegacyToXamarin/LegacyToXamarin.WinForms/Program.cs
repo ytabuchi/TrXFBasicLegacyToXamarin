@@ -16,7 +16,7 @@ namespace LegacyToXamarin.WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SummaryForm());
+            Application.Run(new Views.SummaryForm());
         }
     }
 }

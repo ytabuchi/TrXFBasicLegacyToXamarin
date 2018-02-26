@@ -55,7 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\ApiKeys.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\WebApiClient.cs" />
     <Compile Include="Views\DetailForm.cs">
       <SubType>Form</SubType>
     </Compile>

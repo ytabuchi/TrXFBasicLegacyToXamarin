@@ -1,6 +1,6 @@
-﻿using System;
+﻿using LegacyToXamarin.WinForms.Models;
+using System;
 using System.Windows.Forms;
-using WebClient.Core;
 
 namespace LegacyToXamarin.WinForms.Views
 {
@@ -73,5 +73,6 @@ namespace LegacyToXamarin.WinForms.Views
             await WebApiClient.Instance.DeletePersonAsync(Current);
             DialogResult = DialogResult.OK;
         }
+
     }
 }

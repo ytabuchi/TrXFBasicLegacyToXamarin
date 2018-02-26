@@ -29,13 +29,13 @@ namespace LegacyToXamarin.WinForms.Models
     public class PersonState : Person
     {
         private Person _person;
-        public string DisplayString
-        {
-            get { return _person.ToString(); }
-        }
+
+        public string DisplayString => _person.ToString();
+
         public Person PersonValue
         {
             get { return _person; }
         }
+
     }
 }
