@@ -65,10 +65,29 @@ namespace LegacyToXamarin.WinForms.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void addButton_Click(object sender, EventArgs e)
+        private async void btnAdd_Click(object sender, EventArgs e)
         {
             if (new DetailForm(null).ShowDialog() == DialogResult.OK)
             {
+                await UpdatePersonList();
+            }
+        }
+
+        /// <summary>
+        /// データをすべて削除する
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("データをすべて削除します\nよろしいですか？", "確認", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                var people = await WebApiClient.Instance.GetPeopleAsync();
+                foreach (var person in people)
+                {
+                    await WebApiClient.Instance.DeletePersonAsync(person);
+                }
+
                 await UpdatePersonList();
             }
         }
@@ -87,29 +106,7 @@ namespace LegacyToXamarin.WinForms.Views
                 {
                     await UpdatePersonList();
                 }
-
-
             }
         }
-
-        /// <summary>
-        /// データをすべて削除する
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private async void clearButton_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("データをすべて削除します\nよろしいですか？", "確認", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                var people = await WebApiClient.Instance.GetPeopleAsync();
-                foreach (var person in people)
-                {
-                    await WebApiClient.Instance.DeletePersonAsync(person);
-                }
-
-                await UpdatePersonList();
-            }
-        }
-
     }
 }
