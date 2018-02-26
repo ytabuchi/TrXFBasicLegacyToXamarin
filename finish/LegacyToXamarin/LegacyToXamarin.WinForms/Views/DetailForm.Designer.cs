@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.edtId = new System.Windows.Forms.TextBox();
             this.edtName = new System.Windows.Forms.TextBox();
@@ -132,8 +131,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox edtId;
         private System.Windows.Forms.TextBox edtName;
