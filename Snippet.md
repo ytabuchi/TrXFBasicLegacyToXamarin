@@ -207,7 +207,7 @@ public async Task<bool> DeletePersonAsync(Person person)
 
 ### Views/SummaryForm
 
-<img src="images/WinForms001.png" width="750" />
+<img src="images/WinForms001.png" width="600" />
 
 - ListBox(peopleList)
     - Name: peopleList
@@ -315,7 +315,7 @@ private async void btnDelete_Click(object sender, EventArgs e)
 
 ### Views/DetailForm
 
-<img src="images/WinForms002.png" width="750">
+<img src="images/WinForms002.png" width="600">
 
 - Label
 - TextBox (edtId／edtName／dateTimeBirthday)
@@ -408,6 +408,9 @@ private async void btnDelete_Click(object sender, EventArgs e)
 WPF 用
 
 ### Views/SummaryWindow.xaml
+
+<img src="images/WPF001.png" width="600" />
+
 
 ```xml
 <Window x:Class="LegacyToXamarin.WPF.Views.SummaryWindow"
@@ -573,6 +576,7 @@ private async void Selector_OnSelectionChanged(object sender, SelectionChangedEv
 
 ### Views/DetailWindow.xaml
 
+<img src="images/WPF002.png" width="600" />
 
 ```xml
 <Window x:Class="LegacyToXamarin.WPF.Views.DetailWindow"
