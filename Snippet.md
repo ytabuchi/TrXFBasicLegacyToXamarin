@@ -451,16 +451,15 @@ WPF 用
         <Button Grid.Row="1"
                 Margin="10"
                 Padding="10"
-                Click="BtnAddClick">
-            Add
-        </Button>
+                Click="BtnAddClick"
+                Content="Add" />
         <Button Grid.Column="1"
                 Grid.Row="1"
                 Margin="10"
                 Padding="10"
-                Click="BtnAllDataClick">
-            CLEAR ALL DATA
-        </Button>
+                Click="BtnAllDataClick"
+                Content="Clear all data" />
+
     </Grid>
 </Window>
 ```
@@ -729,6 +728,7 @@ private void DetailWindow_OnLoaded(object sender, RoutedEventArgs e)
     btnDelete.IsEnabled = (currentPerson.Id == 0) ? false : true;
 }
 ```
+
 
 
 
